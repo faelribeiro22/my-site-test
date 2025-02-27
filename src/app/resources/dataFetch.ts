@@ -1,25 +1,44 @@
-import { BuildingDTO } from "@/dtos/BuildingDTO";
-import { api } from "@/services/api";
+/**
+ * @summary Subscribe to event
+ */
+export const getProductsUrl = () => {
 
-export async function loadBuildings(currentPage: number): Promise<{ buildings: BuildingDTO[], total: number, totalPages: number }> {
-    try {
-      const { data } = await api.get("/buildings", {
-        params: {
-          results_per_page: 12,
-          page: currentPage,
-        },
-      });
-      console.log(data);
-      return {
-        buildings: data.buildings,
-        total: data.total,
-        totalPages: data.total_pages,
-      }
-    } catch (error) {
-      console.error(error);
-    return {
-      buildings: [],
-      total: 0,
-      totalPages: 0,
-    };
-  }}
+
+  return 'https://fakestoreapi.in/api/products'
+}
+
+export type Product = {
+  id: number
+  title: string
+  price: number
+  description: string
+  category: string
+  image: string
+}
+
+export type GetProducts201 = {
+  status: number
+  message: string
+  products: Product[]
+}
+
+export type ProductsParamsProps = {
+  limit?: number
+  page?: number
+}
+
+export const getAllProducts = async (options?: RequestInit): Promise<Product[]> => {
+  
+  const res = await fetch(getProductsUrl(),
+  {      
+    ...options,
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+  }
+)
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: GetProducts201 = body ? JSON.parse(body) : {}
+
+  return data.products
+}

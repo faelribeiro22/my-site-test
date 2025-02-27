@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react'
-import GameCard, { GameCardProps } from '.'
+import ProductCard, { ProductCardProps } from '.'
 
-const meta: Meta<GameCardProps> = {
-  title: 'GameCard',
-  component: GameCard,
+const meta: Meta<ProductCardProps> = {
+  title: 'ProductCard',
+  component: ProductCard,
   argTypes: {
     title: {
       type: 'string'
     },
-    developer: {
+    description: {
       type: 'string'
     },
     img: {
@@ -25,11 +25,11 @@ export default meta
 
 export const Default: StoryObj = {}
 
-export const Basic: StoryObj<GameCardProps> = (args: any) => <GameCard {...args} />
+export const Basic: StoryObj<ProductCardProps> = (args: any) => <ProductCard {...args} />
 
 Basic.args = {
-  title: 'Population Zero',
-  developer: 'Rockstar Games',
+  title: 'A new Phone',
+  description: 'A new phone with the best features',
   img: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1jyc.jpg',
   price: 'R$ 235,00'
 }

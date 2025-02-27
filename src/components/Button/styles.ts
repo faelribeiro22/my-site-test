@@ -5,8 +5,8 @@ import { ButtonProps } from '.'
 import { darken } from 'polished'
 
 export type WrapperProps = {
-  hasIcon: boolean
-} & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'>
+  $hasIcon: boolean
+} & Pick<ButtonProps, 'size' | '$fullWidth' | 'minimal'>
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -46,9 +46,8 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
+  ${({ theme, size, $fullWidth: fullWidth, $hasIcon: hasIcon, minimal }) => css`
     display: inline-flex;
-    align-items: center;
     justify-content: center;
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};

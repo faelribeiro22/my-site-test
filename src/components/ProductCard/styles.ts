@@ -1,3 +1,4 @@
+'use client'
 import styled, { css, DefaultTheme } from 'styled-components'
 
 export const Wrapper = styled.article`
@@ -60,14 +61,25 @@ export const Title = styled.h3`
     line-height: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
     color: ${theme.colors.black};
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `}
 `
 
-export const Developer = styled.h4`
+export const Description = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
     color: ${theme.colors.gray};
+    margin-top: ${theme.spacings.xxsmall};
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `}
 `
 

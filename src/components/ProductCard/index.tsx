@@ -4,10 +4,12 @@ import {
 
 import Button from '../Button'
 import * as S from './styles'
+import Link from 'next/link'
 
-export type GameCardProps = {
+export type ProductCardProps = {
+  id: number
   title: string
-  developer: string
+  description: string
   img: string
   price: string
   promotionalPrice?: string
@@ -15,21 +17,24 @@ export type GameCardProps = {
   onFav?: () => void
 }
 
-const GameCard = ({
+const ProductCard = ({
+  id,
   title,
-  developer,
+  description,
   img,
   price,
   promotionalPrice,
-}: GameCardProps) => (
+}: ProductCardProps) => (
   <S.Wrapper>
-    <S.ImageBox>
-      <img src={img} alt={title} />
-    </S.ImageBox>
+    <Link href={`product/${id}`} passHref>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </Link>
     <S.Content>
       <S.Info>
-        <S.Title>{title}</S.Title>
-        <S.Developer>{developer}</S.Developer>
+        <S.Title title={title}>{title}</S.Title>
+        <S.Description>{description}</S.Description>
       </S.Info>
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
@@ -40,4 +45,4 @@ const GameCard = ({
   </S.Wrapper>
 )
 
-export default GameCard
+export default ProductCard

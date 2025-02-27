@@ -36,7 +36,7 @@ describe('<Button />', () => {
 
   it('should render the full width', () => {
     renderWithTheme(
-      <Button size="large" fullWidth>
+      <Button size="large" $fullWidth>
         Buy now
       </Button>
     )
