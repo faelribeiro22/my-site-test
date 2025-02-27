@@ -1,5 +1,4 @@
-import Home from "@/templates/Home";
-import { getAllProducts } from "./resources/dataFetch";
+import Home from '@/templates/Home'
 
 export default async function Main() {
   return <Home />
