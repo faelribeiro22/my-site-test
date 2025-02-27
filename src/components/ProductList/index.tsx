@@ -12,16 +12,16 @@ type ProductListProps = {
 const ProductList = ({ products }: ProductListProps) => {
   return (
     <Grid>
-    {products.map((product) => (
-      <ProductCard
-        key={product.id}
-        id={product.id}
-        description={product.description}
-        img={product.image}
-        price={currencyFormat(product.price)}
-        title={product.title}
-      />
-    ))}
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          id={product.id}
+          description={product.description}
+          img={product.image}
+          price={currencyFormat(Number(product.price))}
+          title={product.title}
+        />
+      ))}
     </Grid>
   )
 }
