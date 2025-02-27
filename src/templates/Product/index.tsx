@@ -1,18 +1,19 @@
-import ProductInfo from '@/components/ProductInfo'
+'use client'
+import ProductInfo, { ProductInfoProps } from '@/components/ProductInfo'
 import React from 'react'
 import Base from '../Base'
+import { currencyFormat } from '@/utils/currencyFormatter'
 
-interface ProductPageProps {
-  params: Promise<{
-    id: string;
-  }>
-}
-
-const Product = async (props: ProductPageProps) => {
-  const { id } = await props.params;
+const Product = ({ category, description, image, price, title }: ProductInfoProps) => {
   return (
     <Base>
-      <ProductInfo />
+      <ProductInfo
+        category={category}
+        description={description}
+        image={image || 'https://placehold.co/600x400'}
+        price={currencyFormat(Number(price))}
+        title={title}
+      />
     </Base>
   )
 }

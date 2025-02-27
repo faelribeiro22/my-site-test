@@ -1,12 +1,15 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from '../../utils/tests/helpers'
 import ProductInfo from '.'
+import { currencyFormat } from '../../utils/currencyFormatter'
 
 const props = {
+  id: '1',
   title: 'product Title 2',
   description: 'the new product new',
-  price: '210,00',
-  img: 'https://source.unsplash.com/user/willianjusten/300x140'
+  price: currencyFormat(210),
+  image: 'https://source.unsplash.com/user/willianjusten/300x140',
+  category: 'category'
 }
 
 describe('<ProductInfo />', () => {
@@ -16,7 +19,7 @@ describe('<ProductInfo />', () => {
     expect(
       screen.getByRole('heading', { name: /product title 2/i })
     ).toBeInTheDocument()
-    expect(screen.getByText(/\$210,00/)).toBeInTheDocument()
+    expect(screen.getByText('R$ 210,00')).toBeInTheDocument()
     expect(screen.getByText(/the new product new/i)).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()

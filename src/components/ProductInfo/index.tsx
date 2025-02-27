@@ -9,21 +9,22 @@ export type ProductInfoProps = {
   title: string
   description: string
   price: string
-  img: string
+  image: string
+  category: string
 }
 
-const ProductInfo = ({ title, description, price, img }: ProductInfoProps) => (
+const ProductInfo = ({ title, description, price, image }: ProductInfoProps) => (
   <S.Wrapper>
-    <Heading color="black" lineBottom>
+    <Heading color="black" $lineBottom>
       {title}
     </Heading>
     <S.ContainerImage>
-      <Image src={img} alt={title} fill={true}/>
+      <Image src={image} alt={title} fill={true}/>
     </S.ContainerImage>
     <S.Description>{description}</S.Description>
 
     <BuyBox>
-      <Price>{`$${price}`}</Price>
+      <Price>{`${price}`}</Price>
       <Button icon={<AddShoppingCart />} size="small">
         Add to cart
       </Button>

@@ -7,7 +7,7 @@ import { LogoProps } from '.'
 const wrapperModifiers = {
   normal: () => css`
     width: 11rem;
-    height: 3.3rem;
+    height: 7.3rem;
   `,
   large: () => css`
     width: 20rem;
@@ -19,7 +19,7 @@ const wrapperModifiers = {
       height: 4.5rem;
 
       svg {
-        height: 4.5rem;
+        height: 7.5rem;
         pointer-events: none;
       }
 
