@@ -19,7 +19,7 @@ const meta: Meta<ProductInfoProps> = {
     price: {
       type: 'string'
     },
-    img: {
+    image: {
       type: 'string'
     }
   }
@@ -40,6 +40,6 @@ export const Basic: StoryObj<ProductInfoProps> = {
 Basic.args = {
   title: 'A new Phone',
   description: 'A new phone with the best features',
-  img: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1jyc.jpg',
+  image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1jyc.jpg',
   price: 'R$ 235,00'
 }
